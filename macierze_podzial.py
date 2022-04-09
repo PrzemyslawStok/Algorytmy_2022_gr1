@@ -14,13 +14,19 @@ def funkcja1():
     print(A[2:5])
 
 
-def funckja2():
-    A = np.arange(0, 10)
-    B = A.reshape([2, 5])
+def funkcja2():
+    A = np.arange(0, 100)
+    B = A.reshape([10, -1])
 
     print(B)
+    print("")
+
+    print(B[:2, :])
+    print(B[:, :2])
+
+    #zad 35-78
 
 
 if __name__ == "__main__":
     # funkcja1()
-    funckja2()
+    funkcja2()
