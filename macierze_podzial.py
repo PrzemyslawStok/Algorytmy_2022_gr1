@@ -24,7 +24,8 @@ def funkcja2():
     print(B[:2, :])
     print(B[:, :2])
 
-    #zad 35-78
+    # zad 35-78
+    print(B[3:8, 5:9])
 
 
 if __name__ == "__main__":
