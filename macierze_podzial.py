@@ -45,16 +45,18 @@ def funkcja3():
 
 
 def podzial1(A: np.ndarray, a=90) -> (np.ndarray, np.ndarray):
-    split = len(A) * a / 100
-    A = np.zeros(10)
-    B = np.zeros(10)
-    return A, B
+    split = int(len(A) * a / 100)
+
+    B = A[:split]
+    C = A[split:]
+
+    return B, C
 
 
 if __name__ == "__main__":
     # funkcja1()
     # funkcja2()
 
-    A, B = podzial1(np.arange(0, 100), 50)
+    A, B = podzial1(np.arange(0, 100), 10)
     print(A)
     print(B)
