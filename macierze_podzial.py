@@ -45,6 +45,7 @@ def funkcja3():
 
 
 def podzial1(A: np.ndarray, a=90) -> (np.ndarray, np.ndarray):
+    split = len(A) * a / 100
     A = np.zeros(10)
     B = np.zeros(10)
     return A, B
