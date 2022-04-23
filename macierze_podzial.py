@@ -56,6 +56,10 @@ def podzial1(A: np.ndarray, a=90) -> (np.ndarray, np.ndarray):
 def podzial2(A: np.ndarray, a=90, b=10) -> (np.ndarray, np.ndarray, np.ndarray, np.ndarray):
     split = int(len(A) * a / 100)
     print(f"shape(A) = {np.shape(A)}")
+    print(f"len(A)={len(A)}")
+
+    print(f"dim_0(A)={np.shape(A)[0]}")
+    print(f"dim_1(A)={np.shape(A)[1]}")
 
     B = A[:split]
     C = A[split:]
@@ -67,5 +71,5 @@ if __name__ == "__main__":
     # funkcja1()
     # funkcja2()
 
-    A, B, _, _ = podzial2(np.arange(0, 100).reshape([10, -1]), 90, 10)
+    A, B, _, _ = podzial2(np.arange(0, 120).reshape([10, -1]), 90, 10)
     print(A, B)
