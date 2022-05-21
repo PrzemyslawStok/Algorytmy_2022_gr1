@@ -21,7 +21,7 @@ def wielomiany(A: np.array):
 
     # y = x^a
 
-    X = np.linspace(-2, 2, 50)
+    X = np.linspace(-1, 1, 50)
 
     for a in A:
         Y = X ** a
@@ -31,6 +31,11 @@ def wielomiany(A: np.array):
     plot.show()
 
 
+def sin_array(A: np.ndarray):
+    pass
+
+
 if __name__ == "__main__":
-    #zadanie1()
-    wielomiany(np.arange(1, 5))
+    # zadanie1()
+    # wielomiany(np.arange(1, 10))
+    sin_array()
