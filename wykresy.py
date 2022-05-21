@@ -32,10 +32,17 @@ def wielomiany(A: np.array):
 
 
 def sin_array(A: np.ndarray):
-    pass
+    X = np.linspace(-np.pi, np.pi, 200)
+
+    for a in A:
+        Y = a * np.sin(a * X)
+        plot.plot(X, Y, label=rf"$y={a}sin({a}x)$")
+
+    plot.legend()
+    plot.show()
 
 
 if __name__ == "__main__":
     # zadanie1()
     # wielomiany(np.arange(1, 10))
-    sin_array()
+    sin_array(np.arange(1, 6))
