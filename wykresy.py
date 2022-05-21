@@ -44,8 +44,15 @@ def sin_array(A: np.ndarray):
 
 def sin_multiplot(A: np.ndarray):
     fig = plot.figure(figsize=(5 * len(A), 5), dpi=100)
-    plot.show()
+    grid_spac = fig.add_gridspec(1, len(A))
+    subplots = grid_spac.subplots()
 
+    X = np.linspace(-np.pi, np.pi, 200)
+    Y = np.sin(X)
+
+    subplots[0].plot(X, Y)
+
+    plot.show()
 
 
 if __name__ == "__main__":
