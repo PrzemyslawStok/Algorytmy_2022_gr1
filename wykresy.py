@@ -32,5 +32,5 @@ def wielomiany(A: np.array):
 
 
 if __name__ == "__main__":
-    zadanie1()
+    #zadanie1()
     wielomiany(np.arange(1, 5))
