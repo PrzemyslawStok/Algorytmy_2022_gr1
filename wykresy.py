@@ -48,8 +48,9 @@ def sin_multiplot(A: np.ndarray):
     subplots = grid_spac.subplots()
 
     X = np.linspace(-np.pi, np.pi, 200)
-    Y = np.sin(X)
 
+
+    Y = np.sin(X)
     subplots[0].plot(X, Y)
 
     plot.show()
