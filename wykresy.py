@@ -42,7 +42,14 @@ def sin_array(A: np.ndarray):
     plot.show()
 
 
+def sin_multiplot(A: np.ndarray):
+    fig = plot.figure(figsize=(5 * len(A), 5), dpi=100)
+    plot.show()
+
+
+
 if __name__ == "__main__":
     # zadanie1()
     # wielomiany(np.arange(1, 10))
-    sin_array(np.arange(1, 6))
+    # sin_array(np.arange(1, 6))
+    sin_multiplot(np.arange(1, 6))
