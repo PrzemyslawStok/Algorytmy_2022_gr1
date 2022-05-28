@@ -49,12 +49,14 @@ def sin_multiplot(A: np.ndarray, B: np.ndarray):
 
     X = np.linspace(-np.pi, np.pi, 200)
 
-    Y = np.sin(X)
+    b = 1.0
 
     for i in range(len(A)):
         a = A[i]
-        Y = np.sin(a * X)
-        subplots[i].plot(X, Y, label=rf"$y=sin({a}x)$")
+
+        for b in B:
+            Y = b * np.sin(a * X)
+            subplots[i].plot(X, Y, label=rf"$y={b}sin({a}x)$")
 
     for i in range(len(A)):
         subplots[i].legend()
@@ -66,4 +68,4 @@ if __name__ == "__main__":
     # zadanie1()
     # wielomiany(np.arange(1, 10))
     # sin_array(np.arange(1, 6))
-    sin_multiplot(np.arange(1, 3), np.array([1, 2, 10]))
+    sin_multiplot(np.arange(1, 6), np.array([1, 2, 5, 7, 10]))
