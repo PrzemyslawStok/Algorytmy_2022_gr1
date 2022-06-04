@@ -41,8 +41,8 @@ if __name__ == "__main__":
     pprint(a_t)
 
     X_t = sym.lambdify(t, x_t, "numpy")
-    # V_t
-    # A_t
+    V_t = sym.lambdify(t, v_t, "numpy")
+    A_t = sym.lambdify(t, a_t, "numpy")
 
     T = np.linspace(0, 10, 100)
 
@@ -50,3 +50,5 @@ if __name__ == "__main__":
 
     plot.plot(T, X)
     plot.show()
+
+
