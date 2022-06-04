@@ -29,26 +29,37 @@ def przyspieszenie(x_t: sym.core.Add):
     return v_t, a_t
 
 
+def evaluate_f(sympy_lambda, T: np.ndarray) -> np.ndarray:
+    array = sympy_lambda(T)
+    if np.ndim(array) == 0:
+        array = array * np.ones(np.shape(T))
+
+    return array
+
+
 if __name__ == "__main__":
     # calki()
     t = sym.symbols("t")
 
-    x_t = 10 * sym.sin(t) + 5 * t + 1
+    x_t = sym.sin(t) * t ** 2 + 5 * t + 1
     v_t, a_t = przyspieszenie(x_t)
 
     pprint(x_t)
     pprint(v_t)
     pprint(a_t)
 
-    X_t = sym.lambdify(t, x_t, "numpy")
-    V_t = sym.lambdify(t, v_t, "numpy")
-    A_t = sym.lambdify(t, a_t, "numpy")
+    x_t_f = sym.lambdify(t, x_t, "numpy")
+    v_t_f = sym.lambdify(t, v_t, "numpy")
+    a_t_f = sym.lambdify(t, a_t, "numpy")
 
     T = np.linspace(0, 10, 100)
+    X_t = x_t_f(T)
+    V_t = v_t_f(T)
 
-    X = X_t(T)
+    A_t = evaluate_f(a_t_f, T)
 
-    plot.plot(T, X)
+    plot.plot(T, X_t)
+    plot.plot(T, V_t)
+    plot.plot(T, A_t)
+
     plot.show()
-
-
