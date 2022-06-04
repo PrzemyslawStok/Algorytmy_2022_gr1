@@ -1,5 +1,8 @@
 from sympy import symbols, pprint, sqrt
 import sympy as sym
+from matplotlib import pyplot as plot
+
+import numpy as np
 
 
 def calki():
@@ -22,15 +25,28 @@ def calki():
 
 def przyspieszenie(x_t: sym.core.Add):
     v_t = sym.diff(x_t, t)
-    return v_t, None
+    a_t = sym.diff(v_t, t)
+    return v_t, a_t
 
 
 if __name__ == "__main__":
     # calki()
     t = sym.symbols("t")
 
-    x_t = t ** 2 + 5 * t + 1
-
+    x_t = 10 * sym.sin(t) + 5 * t + 1
     v_t, a_t = przyspieszenie(x_t)
+
+    pprint(x_t)
     pprint(v_t)
     pprint(a_t)
+
+    X_t = sym.lambdify(t, x_t, "numpy")
+    # V_t
+    # A_t
+
+    T = np.linspace(0, 10, 100)
+
+    X = X_t(T)
+
+    plot.plot(T, X)
+    plot.show()
