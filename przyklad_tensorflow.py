@@ -28,9 +28,11 @@ def srednia(x=0.0, n=100) -> float:
 
 if __name__ == "__main__":
     X, Y = data()
-    noiseY = noised_data(Y)
+    noiseY = noised_data(Y, noise_lvl=0.5)
 
     plot.plot(X, Y)
+    plot.scatter(X, noiseY)
+    plot.scatter(X, noiseY)
     plot.show()
 
     # print(f"srednia = {srednia(10.0, 1000_000)}")
