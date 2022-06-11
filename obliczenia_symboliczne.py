@@ -41,7 +41,7 @@ if __name__ == "__main__":
     # calki()
     t = sym.symbols("t")
 
-    x_t = sym.sin(t) * t ** 2 + 5 * t + 1
+    x_t = t ** 2 / (t + 1) + 5 * t + 1
     v_t, a_t = przyspieszenie(x_t)
 
     pprint(x_t)
@@ -58,8 +58,11 @@ if __name__ == "__main__":
 
     A_t = evaluate_f(a_t_f, T)
 
-    plot.plot(T, X_t)
-    plot.plot(T, V_t)
-    plot.plot(T, A_t)
+    plot.plot(T, X_t, label="$x(t)=" + sym.latex(x_t) + "$")
+    plot.plot(T, V_t, label="$v(t)=" + sym.latex(v_t) + "$")
+    plot.plot(T, A_t, label="$a(t)=" + sym.latex(a_t) + "$")
 
+    plot.legend()
     plot.show()
+
+    print(sym.latex(x_t))
