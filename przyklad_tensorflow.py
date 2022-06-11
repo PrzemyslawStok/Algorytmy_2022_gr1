@@ -11,7 +11,27 @@ def data() -> (np.ndarray, np.ndarray):
     return X, Y
 
 
+def noised_data(Y: np.ndarray, noise_lvl=1.0):
+    for i in range(100):
+        print(np.random.normal(0.0, noise_lvl))
+
+    return Y
+
+
+def srednia(x=0.0, n=100) -> float:
+    srednia = 0
+
+    for i in range(n):
+        print(np.random.normal(0.0, 1.0))
+
+    return srednia
+
+
 if __name__ == "__main__":
     X, Y = data()
     plot.plot(X, Y)
     plot.show()
+
+    # noised_data(Y)
+
+    print(f"srednia = {srednia(0.0, 100)}")
