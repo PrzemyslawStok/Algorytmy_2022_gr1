@@ -22,9 +22,9 @@ def srednia(x=0.0, n=100) -> float:
     srednia = 0
 
     for i in range(n):
-        print(np.random.normal(0.0, 1.0))
+        srednia += np.random.normal(x, 10.0)
 
-    return srednia
+    return srednia / n
 
 
 if __name__ == "__main__":
@@ -32,6 +32,6 @@ if __name__ == "__main__":
     plot.plot(X, Y)
     plot.show()
 
-    # noised_data(Y)
+    Y = noised_data(Y)
 
-    print(f"srednia = {srednia(0.0, 100)}")
+    #print(f"srednia = {srednia(10.0, 1000_000)}")
