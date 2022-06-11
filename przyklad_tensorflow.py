@@ -30,6 +30,7 @@ def createModel() -> tf.keras.Model:
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.InputLayer(input_shape=(1,)))
     model.add(tf.keras.layers.Dense(3))
+    model.add(tf.keras.layers.Dense(1))
     return model
 
 
@@ -37,12 +38,17 @@ if __name__ == "__main__":
     X, Y = data()
     noiseY = noised_data(Y, noise_lvl=0.5)
 
-    plot.plot(X, Y)
+    plot.plot(X, Y, label="funkcja")
     plot.scatter(X, noiseY)
-    plot.scatter(X, noiseY)
-    plot.show()
+    plot.scatter(X, noiseY, label="dane")
 
     model = createModel()
     model.summary()
+
+    modelY = np.squeeze(model(X))
+    plot.plot(X, modelY, label="model")
+
+    plot.legend()
+    plot.show()
 
     # print(f"srednia = {srednia(10.0, 1000_000)}")
