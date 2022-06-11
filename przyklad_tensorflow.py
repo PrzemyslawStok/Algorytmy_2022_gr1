@@ -26,6 +26,13 @@ def srednia(x=0.0, n=100) -> float:
     return srednia / n
 
 
+def createModel() -> tf.keras.Model:
+    model = tf.keras.Sequential()
+    model.add(tf.keras.layers.InputLayer(input_shape=(1,)))
+    model.add(tf.keras.layers.Dense(3))
+    return model
+
+
 if __name__ == "__main__":
     X, Y = data()
     noiseY = noised_data(Y, noise_lvl=0.5)
@@ -34,5 +41,8 @@ if __name__ == "__main__":
     plot.scatter(X, noiseY)
     plot.scatter(X, noiseY)
     plot.show()
+
+    model = createModel()
+    model.summary()
 
     # print(f"srednia = {srednia(10.0, 1000_000)}")
