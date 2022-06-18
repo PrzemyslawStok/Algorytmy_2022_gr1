@@ -1,5 +1,8 @@
 import timeit
 import numpy as np
+import tensorflow as tf
+
+from numba import jit
 
 
 def mnozenie(l=100_000) -> (list, float):
@@ -23,7 +26,20 @@ def mnozenie_numpy(l=100_000) -> (np.ndarray, float):
     A = np.ones(l)
 
     for i in range(10):
-        A = A * 10
+        A = A + 10
+
+    end = timeit.default_timer()
+    return A, end - start
+
+
+@tf.function
+def mnozenie_tensorflow(l=100_000) -> (np.ndarray, float):
+    start = timeit.default_timer()
+
+    A = tf.ones(l)
+
+    for i in range(10):
+        A = A + 10
 
     end = timeit.default_timer()
     return A, end - start
@@ -38,3 +54,4 @@ if __name__ == "__main__":
     l = 100_000
     zmierz_czas(mnozenie, l)
     zmierz_czas(mnozenie_numpy, l)
+    zmierz_czas(mnozenie_tensorflow, l)
