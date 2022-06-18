@@ -18,7 +18,15 @@ def mnozenie(l=100_000) -> (list, float):
 
 
 def mnozenie_numpy(l=100_000) -> (np.ndarray, float):
-    return None, 0.0
+    start = timeit.default_timer()
+
+    A = np.ones(l)
+
+    for i in range(10):
+        A = A * 10
+
+    end = timeit.default_timer()
+    return A, end - start
 
 
 def zmierz_czas(f, l=100_000):
