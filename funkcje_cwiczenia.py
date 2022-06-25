@@ -23,11 +23,16 @@ def f0() -> (int, (int, int)):
     return (10, (2, 5))
 
 
-def f1():
+def f1() -> ((int, int, (int, int)), (int, int)):
     return ((10, 5, (3, 2)), (2, 7))
 
 
-if __name__ == "__main__":
+def f2(*args):
+    for a in args:
+        print(a)
+
+
+def parametry():
     a, b = f0()
     print(f"a={a}, b={b}")
 
@@ -46,3 +51,7 @@ if __name__ == "__main__":
     print(f"a={a}, b={b}")
 
 
+if __name__ == "__main__":
+    # parametry()
+
+    f2(1, "asdfsdf")
