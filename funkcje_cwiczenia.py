@@ -51,11 +51,19 @@ def f2(*args):
         print(a)
 
 
-def suma_parametrow(*args):
-    return 0
+def suma_parametrow(p0, p1, *args):
+    print(f"p0={p0}")
+    print(f"p1={p1}")
+
+    sum = 0
+    for a in args:
+        sum += a
+    return sum
 
 
 if __name__ == "__main__":
     # parametry()
 
-    f2(1, 5, 10, "f0", "f1")
+    # f2(1, 5, 10, "f0", "f1")
+
+    print(suma_parametrow(1, 2, 5, 6, 7))
