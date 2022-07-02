@@ -98,7 +98,11 @@ def f3(**kwargs):
 
 
 def cw2(**kwargs):
-    return 0
+    sum = 0
+    for value in kwargs.values():
+        sum += float(value) ** 2
+
+    return sum
 
 
 if __name__ == "__main__":
