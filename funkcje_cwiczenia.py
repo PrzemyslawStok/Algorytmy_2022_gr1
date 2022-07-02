@@ -61,9 +61,58 @@ def suma_parametrow(p0, p1, *args):
     return sum
 
 
+def dict0():
+    d0 = {"p0": 2}
+    d0['p1'] = 10
+    d0[0] = 11
+
+    print(d0)
+
+    print(f"{d0.keys()}")
+    print(f"{d0.values()}")
+    print(f"{d0.items()}")
+
+    for key, value in d0.items():
+        print(f"key: {key}, value: {value}")
+
+
+def cw1():
+    dict0 = {}
+    for i in range(10):
+        dict0[f"i_{i}"] = np.random.randint(0, 10)
+
+    print(dict0)
+    suma = 0
+    for value in dict0.values():
+        a = int(value)
+        kwadrat = a ** 2
+        print(f"{value}*{value}={kwadrat}")
+        suma += kwadrat
+
+    print(f"suma kwadratow={suma}")
+
+
+def f3(**kwargs):
+    for item in kwargs.items():
+        print(item)
+
+
+def cw2(**kwargs):
+    return 0
+
+
 if __name__ == "__main__":
     # parametry()
 
     # f2(1, 5, 10, "f0", "f1")
 
-    print(suma_parametrow(1, 2, 5, 6, 7))
+    # print(suma_parametrow(1, 2, 5, 6, 7))
+
+    # dict0()
+
+    # cw1()
+
+    kwargs = {"a": 10}
+    f3(a=10, b=5)
+
+    print(cw2(a=10, b=5))
