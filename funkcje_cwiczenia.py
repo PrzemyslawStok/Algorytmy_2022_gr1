@@ -27,11 +27,6 @@ def f1() -> ((int, int, (int, int)), (int, int)):
     return ((10, 5, (3, 2)), (2, 7))
 
 
-def f2(*args):
-    for a in args:
-        print(a)
-
-
 def parametry():
     a, b = f0()
     print(f"a={a}, b={b}")
@@ -51,7 +46,16 @@ def parametry():
     print(f"a={a}, b={b}")
 
 
+def f2(*args):
+    for a in args:
+        print(a)
+
+
+def suma_parametrow(*args):
+    return 0
+
+
 if __name__ == "__main__":
     # parametry()
 
-    f2(1, "asdfsdf")
+    f2(1, 5, 10, "f0", "f1")
