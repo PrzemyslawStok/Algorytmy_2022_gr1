@@ -105,6 +105,10 @@ def cw2(**kwargs):
     return sum
 
 
+def f5() -> (int, int):
+    return 10, 1
+
+
 if __name__ == "__main__":
     # parametry()
 
@@ -119,4 +123,9 @@ if __name__ == "__main__":
     kwargs = {"a": 10}
     f3(a=10, b=5)
 
-    print(cw2(a=10, b=5))
+    # print(cw2(a=10, b=5))
+
+    # print(f5())
+    a, _ = f5()
+
+    print(a)
