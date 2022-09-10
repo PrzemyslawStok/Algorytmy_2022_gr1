@@ -113,26 +113,21 @@ def f6() -> (int, (int, int)):
     return 10, (1, 100)
 
 
-def f7() -> ((int, int), (int, float, str)):
-    return (1, 10), (1, 5.2, "f7")
+def f7() -> ((int, int), ((int, float), str)):
+    return (1, 10), (1, (5.2, "f7"))
 
 
 if __name__ == "__main__":
     # parametry()
-
     # f2(1, 5, 10, "f0", "f1")
-
     # print(suma_parametrow(1, 2, 5, 6, 7))
-
     # dict0()
-
     # cw1()
 
     kwargs = {"a": 10}
     f3(a=10, b=5)
 
     # print(cw2(a=10, b=5))
-
     # print(f5())
     a, _ = f5()
 
