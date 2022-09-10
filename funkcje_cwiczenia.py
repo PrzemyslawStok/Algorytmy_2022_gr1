@@ -109,6 +109,14 @@ def f5() -> (int, int):
     return 10, 1
 
 
+def f6() -> (int, (int, int)):
+    return 10, (1, 100)
+
+
+def f7() -> ((int, int), (int, float, str)):
+    return (1, 10), (1, 5.2, "f7")
+
+
 if __name__ == "__main__":
     # parametry()
 
@@ -128,4 +136,10 @@ if __name__ == "__main__":
     # print(f5())
     a, _ = f5()
 
+    print(a)
+
+    a, (b, c) = f6()
+    print(c)
+
+    a = f7()
     print(a)
